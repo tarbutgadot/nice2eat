@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה לטעים להכיר 3</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #fff3e0; 
+            color: #333; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+        }
+        .logo { 
+            display: block; 
+            margin: 0 auto 20px; 
+            max-width: 250px; 
+            width: 100%;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); 
+        }
+        h1 { 
+            text-align: center; 
+            color: #e65100; 
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p.description { 
+            line-height: 1.6; 
+            margin-bottom: 25px; 
+            font-size: 16px;
+        }
+        .form-group { 
+            margin-bottom: 20px; 
+        }
+        label { 
+            display: block; 
+            font-weight: bold; 
+            margin-bottom: 8px; 
+            color: #424242;
+        }
+        input[type="text"], input[type="tel"], input[type="number"], textarea { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            font-family: inherit; 
+            font-size: 15px;
+        }
+        input:focus, textarea:focus {
+            border-color: #e65100;
+            outline: none;
+            box-shadow: 0 0 5px rgba(230, 81, 0, 0.2);
+        }
+        button { 
+            background-color: #e65100; 
+            color: white; 
+            border: none; 
+            padding: 15px 20px; 
+            width: 100%; 
+            border-radius: 8px; 
+            font-size: 18px; 
+            font-weight: bold;
+            cursor: pointer; 
+            transition: background 0.3s; 
+            position: relative; 
+        }
+        button:hover { 
+            background-color: #ef6c00; 
+        }
+        .spinner { 
+            display: none; 
+            width: 24px; 
+            height: 24px; 
+            border: 3px solid rgba(255,255,255,0.3); 
+            border-radius: 50%; 
+            border-top-color: white; 
+            animation: spin 1s ease-in-out infinite; 
+            position: absolute; 
+            left: 50%; 
+            top: 50%; 
+            transform: translate(-50%, -50%); 
+            margin-left: -12px; 
+            margin-top: -12px; 
+        }
+        @keyframes spin { 
+            to { transform: rotate(360deg); } 
+        }
+        .loading .btn-text { 
+            visibility: hidden; 
+        }
+        .loading .spinner { 
+            display: block; 
+        }
+        #success-msg { 
+            display: none; 
+            text-align: center; 
+            color: #2e7d32; 
+            font-size: 20px;
+            font-weight: bold; 
+            margin-top: 30px; 
+            padding: 20px;
+            background-color: #e8f5e9;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- הקישור הותאם להצגה ישירה של תמונה מגוגל דרייב -->
+        <img src="https://drive.google.com/uc?export=view&id=15pKPeZ7ACJKucwtqMBx4KWXThG0tA1m8" alt="טעים להכיר 3 לוגו" class="logo">
+        
+        <h1>מוכנים לאתגר? הירשמו להיות בית מארח!</h1>
+        <p class="description">
+            ״טעים להכיר״ הוא מיזם קהילתי בגדות שמחבר בין אנשים דרך אוכל. במסגרת המיזם, משפחות וחברים מהקיבוץ פותחים ליום אחד מסעדות פופ־אפ מיוחדות, כל אחת עם קונספט, תפריט ואווירה משלה. חברי הקיבוץ מוזמנים להגיע, לטעום, ליהנות מחוויה קולינרית קצת אחרת ובעיקר להיפגש, להכיר ולהתחבר. כי בסופו של דבר, האוכל הוא רק התירוץ — המטרה האמיתית היא לחזק את הקשרים בקהילה, ליצור מפגשים חדשים ולגלות את האנשים שמאחורי השמות והפנים המוכרות.
+        </p>
+        
+        <form id="registration-form">
+            <div class="form-group">
+                <label>1. שם המארח/ת או המשפחה המארחת (חובה)</label>
+                <input type="text" name="hostName" required>
+            </div>
+            <div class="form-group">
+                <label>2. מספר טלפון ליצירת קשר (חובה)</label>
+                <input type="tel" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label>3. מה הקונספט של המסעדה שלכם? (חובה)</label>
+                <textarea name="concept" rows="3" placeholder="סוג המטבח, הרעיון או האווירה" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>4. איך תרצו לקרוא למסעדה שלכם?</label>
+                <input type="text" name="restaurantName" placeholder="אפשר להחליט גם בהמשך">
+            </div>
+            <div class="form-group">
+                <label>5. מה אתם מתכננים להגיש?</label>
+                <textarea name="menu" rows="3" placeholder="מנות או תפריט ראשוני"></textarea>
+            </div>
+            <div class="form-group">
+                <label>6. כמה סועדים תוכלו לארח? (חובה)</label>
+                <input type="number" name="diners" placeholder="מספר משוער" required>
+            </div>
+            <div class="form-group">
+                <label>7. האם יש לכם צרכים מיוחדים או ציוד שתצטרכו?</label>
+                <textarea name="needs" rows="3" placeholder="שולחנות, כיסאות, ציוד וכדומה"></textarea>
+            </div>
+            <div class="form-group">
+                <label>8. האם יש משהו נוסף שחשוב שנדע?</label>
+                <textarea name="extraInfo" rows="3"></textarea>
+            </div>
+            
+            <button type="submit" id="submit-btn">
+                <span class="btn-text">שלחו הרשמה</span>
+                <span class="spinner"></span>
+            </button>
+        </form>
+        <div id="success-msg">ההרשמה נשלחה בהצלחה! ניצור קשר בקרוב.</div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registration-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const successMsg = document.getElementById('success-msg');
+        
+        // הקישור לאקסל שלך
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzo2ax_bZJ8041-YjzkTiNWqBKzPcgK2XekNgwE2I_Oq1i9AJLvvrIH3YT--GB7jSRsdA/exec';
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // הפעלת האנימציה בכפתור
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            // איסוף הנתונים
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            // שליחה לאקסל
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain' },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                submitBtn.classList.remove('loading');
+                form.reset();
+                form.style.display = 'none';
+                successMsg.style.display = 'block';
+                // חזרה אוטומטית לראש העמוד כדי לראות את הודעת ההצלחה
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                alert('הייתה בעיה קטנה בשליחת הטופס. נסו ללחוץ שוב.');
+            });
+        });
+    </script>
+</body>
+</html>
