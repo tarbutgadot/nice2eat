@@ -3,203 +3,325 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>הרשמה לטעים להכיר 3</title>
+    <title>הרשמה | טעים להכיר 3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #fff3e0; 
-            color: #333; 
-            margin: 0; 
-            padding: 20px; 
+        :root {
+            --primary-color: #e65100;
+            --primary-hover: #ef6c00;
+            --bg-body: #fff3e0;
+            --bg-container: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-color: #cccccc;
         }
-        .container { 
-            max-width: 600px; 
-            margin: 0 auto; 
-            background: white; 
-            padding: 30px; 
-            border-radius: 15px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        .logo { 
-            display: block; 
-            margin: 0 auto 20px; 
-            max-width: 250px; 
+
+        body {
+            font-family: 'Heebo', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: var(--bg-container);
             width: 100%;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); 
+            max-width: 650px;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 25px rgba(230, 81, 0, 0.1);
         }
-        h1 { 
-            text-align: center; 
-            color: #e65100; 
-            font-size: 24px;
-            margin-bottom: 20px;
+
+        .logo {
+            display: block;
+            margin: 0 auto 25px;
+            max-width: 220px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
-        p.description { 
-            line-height: 1.6; 
-            margin-bottom: 25px; 
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 26px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .description {
+            text-align: center;
+            color: var(--text-light);
             font-size: 16px;
+            margin-bottom: 35px;
+            background-color: #fff9f2;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ffe0b2;
         }
-        .form-group { 
-            margin-bottom: 20px; 
+
+        .form-group {
+            margin-bottom: 22px;
         }
-        label { 
-            display: block; 
-            font-weight: bold; 
-            margin-bottom: 8px; 
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: #424242;
-        }
-        input[type="text"], input[type="tel"], input[type="number"], textarea { 
-            width: 100%; 
-            padding: 12px; 
-            border: 1px solid #ccc; 
-            border-radius: 8px; 
-            box-sizing: border-box; 
-            font-family: inherit; 
             font-size: 15px;
         }
-        input:focus, textarea:focus {
-            border-color: #e65100;
-            outline: none;
-            box-shadow: 0 0 5px rgba(230, 81, 0, 0.2);
-        }
-        button { 
-            background-color: #e65100; 
-            color: white; 
-            border: none; 
-            padding: 15px 20px; 
-            width: 100%; 
-            border-radius: 8px; 
-            font-size: 18px; 
-            font-weight: bold;
-            cursor: pointer; 
-            transition: background 0.3s; 
-            position: relative; 
-        }
-        button:hover { 
-            background-color: #ef6c00; 
-        }
-        .spinner { 
-            display: none; 
-            width: 24px; 
-            height: 24px; 
-            border: 3px solid rgba(255,255,255,0.3); 
-            border-radius: 50%; 
-            border-top-color: white; 
-            animation: spin 1s ease-in-out infinite; 
-            position: absolute; 
-            left: 50%; 
-            top: 50%; 
-            transform: translate(-50%, -50%); 
-            margin-left: -12px; 
-            margin-top: -12px; 
-        }
-        @keyframes spin { 
-            to { transform: rotate(360deg); } 
-        }
-        .loading .btn-text { 
-            visibility: hidden; 
-        }
-        .loading .spinner { 
-            display: block; 
-        }
-        #success-msg { 
-            display: none; 
-            text-align: center; 
-            color: #2e7d32; 
-            font-size: 20px;
-            font-weight: bold; 
-            margin-top: 30px; 
-            padding: 20px;
-            background-color: #e8f5e9;
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        button[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 16px 20px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--primary-hover);
+        }
+
+        button[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
+        button[type="submit"]:disabled {
+            background-color: #ffb74d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Spinner CSS */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading .spinner {
+            display: block;
+        }
+
+        .loading .btn-text {
+            display: none;
+        }
+
+        /* Success Message */
+        #success-msg {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .success-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #4caf50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin: 0 auto 20px;
+        }
+
+        #success-msg h2 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        #error-msg {
+            display: none;
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px 20px;
+            }
+            h1 {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- קריאה ישירה לקובץ התמונה המקומי -->
-        <img src="טעים להכיר לוגו.png" alt="טעים להכיר 3 לוגו" class="logo">
+        <!-- Logo -->
+        <img src="https://lh3.googleusercontent.com/d/15pKPeZ7ACJKucwtqMBx4KWXThG0tA1m8" alt="טעים להכיר 3 לוגו" class="logo">
         
-        <h1>מוכנים לאתגר? הירשמו להיות בית מארח!</h1>
-        <p class="description">
-            ״טעים להכיר״ הוא מיזם קהילתי בגדות שמחבר בין אנשים דרך אוכל. במסגרת המיזם, משפחות וחברים מהקיבוץ פותחים ליום אחד מסעדות פופ־אפ מיוחדות, כל אחת עם קונספט, תפריט ואווירה משלה. חברי הקיבוץ מוזמנים להגיע, לטעום, ליהנות מחוויה קולינרית קצת אחרת ובעיקר להיפגש, להכיר ולהתחבר. כי בסופו של דבר, האוכל הוא רק התירוץ — המטרה האמיתית היא לחזק את הקשרים בקהילה, ליצור מפגשים חדשים ולגלות את האנשים שמאחורי השמות והפנים המוכרות.
-        </p>
-        
-        <form id="registration-form">
-            <div class="form-group">
-                <label>1. שם המארח/ת או המשפחה המארחת (חובה)</label>
-                <input type="text" name="hostName" required>
-            </div>
-            <div class="form-group">
-                <label>2. מספר טלפון ליצירת קשר (חובה)</label>
-                <input type="tel" name="phone" required>
-            </div>
-            <div class="form-group">
-                <label>3. מה הקונספט של המסעדה שלכם? (חובה)</label>
-                <textarea name="concept" rows="3" placeholder="סוג המטבח, הרעיון או האווירה" required></textarea>
-            </div>
-            <div class="form-group">
-                <label>4. איך תרצו לקרוא למסעדה שלכם?</label>
-                <input type="text" name="restaurantName" placeholder="אפשר להחליט גם בהמשך">
-            </div>
-            <div class="form-group">
-                <label>5. מה אתם מתכננים להגיש?</label>
-                <textarea name="menu" rows="3" placeholder="מנות או תפריט ראשוני"></textarea>
-            </div>
-            <div class="form-group">
-                <label>6. כמה סועדים תוכלו לארח? (חובה)</label>
-                <input type="number" name="diners" placeholder="מספר משוער" required>
-            </div>
-            <div class="form-group">
-                <label>7. האם יש לכם צרכים מיוחדים או ציוד שתצטרכו?</label>
-                <textarea name="needs" rows="3" placeholder="שולחנות, כיסאות, ציוד וכדומה"></textarea>
-            </div>
-            <div class="form-group">
-                <label>8. האם יש משהו נוסף שחשוב שנדע?</label>
-                <textarea name="extraInfo" rows="3"></textarea>
-            </div>
+        <div id="form-container">
+            <h1>מוכנים לאתגר? הירשמו להיות בית מארח!</h1>
+            <p class="description">
+                ״טעים להכיר״ הוא מיזם קהילתי בגדות שמחבר בין אנשים דרך אוכל. במסגרת המיזם, משפחות וחברים מהקיבוץ פותחים ליום אחד מסעדות פופ־אפ מיוחדות, כל אחת עם קונספט, תפריט ואווירה משלה. חברי הקיבוץ מוזמנים להגיע, לטעום, ליהנות מחוויה קולינרית קצת אחרת ובעיקר להיפגש, להכיר ולהתחבר. המטרה האמיתית היא לחזק את הקשרים בקהילה ולגלות את האנשים שמאחורי השמות.
+            </p>
             
-            <button type="submit" id="submit-btn">
-                <span class="btn-text">שלחו הרשמה</span>
-                <span class="spinner"></span>
-            </button>
-        </form>
-        <div id="success-msg">ההרשמה נשלחה בהצלחה! ניצור קשר בקרוב.</div>
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="hostName">1. שם המארח/ת או המשפחה המארחת (חובה)</label>
+                    <input type="text" id="hostName" name="hostName" required placeholder="לדוגמה: משפחת כהן">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">2. מספר טלפון ליצירת קשר (חובה)</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="05X-XXXXXXX" dir="ltr" style="text-align: right;">
+                </div>
+                
+                <div class="form-group">
+                    <label for="concept">3. מה הקונספט של המסעדה שלכם? (חובה)</label>
+                    <textarea id="concept" name="concept" rows="2" placeholder="סוג המטבח, הרעיון או האווירה..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="restaurantName">4. איך תרצו לקרוא למסעדה שלכם?</label>
+                    <input type="text" id="restaurantName" name="restaurantName" placeholder="אפשר להחליט גם בהמשך">
+                </div>
+                
+                <div class="form-group">
+                    <label for="menu">5. מה אתם מתכננים להגיש?</label>
+                    <textarea id="menu" name="menu" rows="2" placeholder="מנות או תפריט ראשוני (כולל בשרי/חלבי)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="diners">6. כמה סועדים תוכלו לארח? (חובה)</label>
+                    <input type="number" id="diners" name="diners" placeholder="מספר משוער" min="1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="needs">7. האם יש לכם צרכים מיוחדים או ציוד שתצטרכו?</label>
+                    <textarea id="needs" name="needs" rows="2" placeholder="שולחנות, כיסאות, ציוד וכדומה..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="extraInfo">8. האם יש משהו נוסף שחשוב שנדע?</label>
+                    <textarea id="extraInfo" name="extraInfo" rows="2" placeholder="כל פרט נוסף..."></textarea>
+                </div>
+                
+                <button type="submit" id="submit-btn">
+                    <span class="btn-text">שלחו הרשמה</span>
+                    <span class="spinner"></span>
+                </button>
+                
+                <div id="error-msg">אירעה שגיאה בשליחה. אנא נסו שוב.</div>
+            </form>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-msg">
+            <div class="success-icon">✓</div>
+            <h2>ההרשמה נשלחה בהצלחה!</h2>
+            <p>תודה על השתתפותכם. ניצור עמכם קשר בקרוב עם פרטים נוספים.</p>
+        </div>
     </div>
 
     <script>
         const form = document.getElementById('registration-form');
         const submitBtn = document.getElementById('submit-btn');
+        const formContainer = document.getElementById('form-container');
         const successMsg = document.getElementById('success-msg');
+        const errorMsg = document.getElementById('error-msg');
         
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzo2ax_bZJ8041-YjzkTiNWqBKzPcgK2XekNgwE2I_Oq1i9AJLvvrIH3YT--GB7jSRsdA/exec';
 
         form.addEventListener('submit', e => {
             e.preventDefault();
             
+            // UI Update: Loading State
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
+            errorMsg.style.display = 'none';
 
+            // Collect form data
             const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
 
+            // Fetch request to Google Apps Script
             fetch(scriptURL, {
                 method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify(data)
+                mode: 'no-cors', // Essential for bypassing CORS block on direct Google App Script requests
+                body: formData
             })
-            .then(() => {
-                submitBtn.classList.remove('loading');
-                form.reset();
-                form.style.display = 'none';
+            .then(response => {
+                // Since mode is 'no-cors', response is opaque, we assume success if no network error
+                formContainer.style.display = 'none';
                 successMsg.style.display = 'block';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             })
             .catch(error => {
-                console.error('Error!', error.message);
+                console.error('Submission Error:', error);
+                errorMsg.style.display = 'block';
+            })
+            .finally(() => {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
-                alert('הייתה בעיה קטנה בשליחת הטופס. נסו ללחוץ שוב.');
             });
         });
     </script>
