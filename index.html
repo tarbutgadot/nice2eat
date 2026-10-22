@@ -116,8 +116,8 @@
 </head>
 <body>
     <div class="container">
-        <!-- הקישור הותאם להצגה ישירה של תמונה מגוגל דרייב -->
-        <img src="https://drive.google.com/uc?export=view&id=15pKPeZ7ACJKucwtqMBx4KWXThG0tA1m8" alt="טעים להכיר 3 לוגו" class="logo">
+        <!-- קריאה ישירה לקובץ התמונה המקומי -->
+        <img src="טעים להכיר לוגו.png" alt="טעים להכיר 3 לוגו" class="logo">
         
         <h1>מוכנים לאתגר? הירשמו להיות בית מארח!</h1>
         <p class="description">
@@ -171,21 +171,17 @@
         const submitBtn = document.getElementById('submit-btn');
         const successMsg = document.getElementById('success-msg');
         
-        // הקישור לאקסל שלך
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzo2ax_bZJ8041-YjzkTiNWqBKzPcgK2XekNgwE2I_Oq1i9AJLvvrIH3YT--GB7jSRsdA/exec';
 
         form.addEventListener('submit', e => {
             e.preventDefault();
             
-            // הפעלת האנימציה בכפתור
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
 
-            // איסוף הנתונים
             const formData = new FormData(form);
             const data = Object.fromEntries(formData.entries());
 
-            // שליחה לאקסל
             fetch(scriptURL, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -197,7 +193,6 @@
                 form.reset();
                 form.style.display = 'none';
                 successMsg.style.display = 'block';
-                // חזרה אוטומטית לראש העמוד כדי לראות את הודעת ההצלחה
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             })
             .catch(error => {
