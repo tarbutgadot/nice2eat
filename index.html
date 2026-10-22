@@ -14,8 +14,8 @@
             --bg-body: #fff3e0;
             --bg-container: #ffffff;
             --text-main: #333333;
-            --text-light: #666666;
-            --border-color: #cccccc;
+            --text-light: #555555;
+            --border-color: #e0e0e0;
         }
 
         * {
@@ -25,7 +25,7 @@
         }
 
         body {
-            font-family: 'Heebo', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Heebo', sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
@@ -40,15 +40,15 @@
             background-color: var(--bg-container);
             width: 100%;
             max-width: 650px;
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 40px 30px;
-            box-shadow: 0 10px 25px rgba(230, 81, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(230, 81, 0, 0.08);
         }
 
         .logo {
             display: block;
             margin: 0 auto 25px;
-            max-width: 220px;
+            max-width: 200px;
             width: 100%;
             height: auto;
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
@@ -57,7 +57,7 @@
         h1 {
             text-align: center;
             color: var(--primary-color);
-            font-size: 26px;
+            font-size: 28px;
             margin-bottom: 15px;
             font-weight: 700;
         }
@@ -66,15 +66,15 @@
             text-align: center;
             color: var(--text-light);
             font-size: 16px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             background-color: #fff9f2;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 18px;
+            border-radius: 12px;
             border: 1px solid #ffe0b2;
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         label {
@@ -90,9 +90,9 @@
         input[type="number"],
         textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 16px;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 10px;
             font-family: inherit;
             font-size: 15px;
             transition: all 0.3s ease;
@@ -104,12 +104,12 @@
             border-color: var(--primary-color);
             outline: none;
             background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.15);
+            box-shadow: 0 0 0 4px rgba(230, 81, 0, 0.1);
         }
 
         textarea {
             resize: vertical;
-            min-height: 80px;
+            min-height: 90px;
         }
 
         button[type="submit"] {
@@ -118,37 +118,36 @@
             border: none;
             padding: 16px 20px;
             width: 100%;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 18px;
             font-weight: 700;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
+            transition: all 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
-            margin-top: 10px;
+            margin-top: 15px;
+            box-shadow: 0 4px 6px rgba(230, 81, 0, 0.2);
         }
 
         button[type="submit"]:hover {
             background-color: var(--primary-hover);
-        }
-
-        button[type="submit"]:active {
-            transform: scale(0.98);
+            box-shadow: 0 6px 12px rgba(230, 81, 0, 0.3);
+            transform: translateY(-1px);
         }
 
         button[type="submit"]:disabled {
             background-color: #ffb74d;
             cursor: not-allowed;
             transform: none;
+            box-shadow: none;
         }
 
         /* Spinner CSS */
         .spinner {
             display: none;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             border: 3px solid rgba(255,255,255,0.3);
             border-radius: 50%;
             border-top-color: white;
@@ -167,36 +166,37 @@
             display: none;
         }
 
-        /* Success Message */
+        /* Messages */
         #success-msg {
             display: none;
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
         }
 
         .success-icon {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             background-color: #4caf50;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 35px;
             margin: 0 auto 20px;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
         }
 
         #success-msg h2 {
             color: #2e7d32;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         #error-msg {
             display: none;
             color: #d32f2f;
             background-color: #ffebee;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             text-align: center;
             margin-top: 15px;
@@ -206,10 +206,11 @@
         /* Responsive */
         @media (max-width: 600px) {
             .container {
-                padding: 25px 20px;
+                padding: 30px 20px;
+                border-radius: 15px;
             }
             h1 {
-                font-size: 22px;
+                font-size: 24px;
             }
         }
     </style>
@@ -222,7 +223,7 @@
         <div id="form-container">
             <h1>מוכנים לאתגר? הירשמו להיות בית מארח!</h1>
             <p class="description">
-                ״טעים להכיר״ הוא מיזם קהילתי בגדות שמחבר בין אנשים דרך אוכל. במסגרת המיזם, משפחות וחברים מהקיבוץ פותחים ליום אחד מסעדות פופ־אפ מיוחדות, כל אחת עם קונספט, תפריט ואווירה משלה. חברי הקיבוץ מוזמנים להגיע, לטעום, ליהנות מחוויה קולינרית קצת אחרת ובעיקר להיפגש, להכיר ולהתחבר. המטרה האמיתית היא לחזק את הקשרים בקהילה ולגלות את האנשים שמאחורי השמות.
+                ״טעים להכיר״ הוא מיזם קהילתי בגדות שמחבר בין אנשים דרך אוכל. במסגרת המיזם, משפחות וחברים מהקיבוץ פותחים ליום אחד מסעדות פופ־אפ מיוחדות, כל אחת עם קונספט, תפריט ואווירה משלה. חברי הקיבוץ מוזמנים להגיע, לטעום, ליהנות מחוויה קולינרית קצת אחרת ובעיקר להיפגש, להכיר ולהתחבר. כי בסופו של דבר, האוכל הוא רק התירוץ — המטרה האמיתית היא לחזק את הקשרים בקהילה, ליצור מפגשים חדשים ולגלות את האנשים שמאחורי השמות והפנים המוכרות.
             </p>
             
             <form id="registration-form">
@@ -238,7 +239,7 @@
                 
                 <div class="form-group">
                     <label for="concept">3. מה הקונספט של המסעדה שלכם? (חובה)</label>
-                    <textarea id="concept" name="concept" rows="2" placeholder="סוג המטבח, הרעיון או האווירה..." required></textarea>
+                    <textarea id="concept" name="concept" placeholder="סוג המטבח, הרעיון או האווירה..." required></textarea>
                 </div>
                 
                 <div class="form-group">
@@ -248,7 +249,7 @@
                 
                 <div class="form-group">
                     <label for="menu">5. מה אתם מתכננים להגיש?</label>
-                    <textarea id="menu" name="menu" rows="2" placeholder="מנות או תפריט ראשוני (כולל בשרי/חלבי)"></textarea>
+                    <textarea id="menu" name="menu" placeholder="מנות או תפריט ראשוני (כולל בשרי/חלבי)"></textarea>
                 </div>
                 
                 <div class="form-group">
@@ -258,12 +259,12 @@
                 
                 <div class="form-group">
                     <label for="needs">7. האם יש לכם צרכים מיוחדים או ציוד שתצטרכו?</label>
-                    <textarea id="needs" name="needs" rows="2" placeholder="שולחנות, כיסאות, ציוד וכדומה..."></textarea>
+                    <textarea id="needs" name="needs" placeholder="שולחנות, כיסאות, ציוד וכדומה..."></textarea>
                 </div>
                 
                 <div class="form-group">
                     <label for="extraInfo">8. האם יש משהו נוסף שחשוב שנדע?</label>
-                    <textarea id="extraInfo" name="extraInfo" rows="2" placeholder="כל פרט נוסף..."></textarea>
+                    <textarea id="extraInfo" name="extraInfo" placeholder="כל פרט נוסף..."></textarea>
                 </div>
                 
                 <button type="submit" id="submit-btn">
@@ -279,38 +280,37 @@
         <div id="success-msg">
             <div class="success-icon">✓</div>
             <h2>ההרשמה נשלחה בהצלחה!</h2>
-            <p>תודה על השתתפותכם. ניצור עמכם קשר בקרוב עם פרטים נוספים.</p>
+            <p>תודה רבה על השתתפותכם. ניצור עמכם קשר בקרוב עם פרטים נוספים.</p>
         </div>
     </div>
 
     <script>
-        const form = document.getElementById('registration-form');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzHMJbjzk7qIOYDF9MrUkGyIlrYBxorm1oKnKfMMDtW7n4sU9vRIPrHf_LYaacCaFSVpA/exec';
+        const form = document.forms['registration-form'];
         const submitBtn = document.getElementById('submit-btn');
         const formContainer = document.getElementById('form-container');
         const successMsg = document.getElementById('success-msg');
         const errorMsg = document.getElementById('error-msg');
-        
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzo2ax_bZJ8041-YjzkTiNWqBKzPcgK2XekNgwE2I_Oq1i9AJLvvrIH3YT--GB7jSRsdA/exec';
 
         form.addEventListener('submit', e => {
             e.preventDefault();
             
-            // UI Update: Loading State
+            // Show loading state
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             errorMsg.style.display = 'none';
 
-            // Collect form data
-            const formData = new FormData(form);
+            // המרה של הנתונים לפורמט שבטוח עובד עם גוגל אקסל
+            const data = new URLSearchParams(new FormData(form));
 
-            // Fetch request to Google Apps Script
-            fetch(scriptURL, {
+            // Send data using fetch with URLSearchParams
+            fetch(scriptURL, { 
                 method: 'POST',
-                mode: 'no-cors', // Essential for bypassing CORS block on direct Google App Script requests
-                body: formData
+                mode: 'no-cors',
+                body: data 
             })
             .then(response => {
-                // Since mode is 'no-cors', response is opaque, we assume success if no network error
+                // Assuming success if the fetch resolves
                 formContainer.style.display = 'none';
                 successMsg.style.display = 'block';
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -320,6 +320,7 @@
                 errorMsg.style.display = 'block';
             })
             .finally(() => {
+                // Reset button state
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
             });
